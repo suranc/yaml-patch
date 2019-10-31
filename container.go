@@ -161,6 +161,10 @@ func findContainer(c Container, path *OpPath) (Container, string, error) {
 			return nil, "", fmt.Errorf("path does not exist: %s", path)
 		}
 
+		if node.Container() == nil {
+			return nil, "", fmt.Errorf("path does not exist: %s", path)
+		}
+
 		foundContainer = node.Container()
 	}
 
